@@ -1,52 +1,41 @@
-Hi there!  Welcome to using UnoJoy!
+﻿Xin chào các bạn! Chào mừng bạn đến với UnoJoyKT!
 
-UnoJoy lets you use a plain, unmodified Arduino Uno
-to create native USB joysticks.  It is a three-part system:
+UnoJoyKT là một dự án nhỏ được sửa một số chỗ dựa trên mã nguồn UnoJoy do bạn AlanChatham công bố. 
+UnoJoyKT cho phép bạn dùng Arduino Uno tạo cần điều khiển Joystick giao diện USB. 
 
-Drivers - Needed to re-flash the Arduino's USB communication chip
-Software - The UnoJoy library for Arduino
-Firmware - Code to load onto Arduino's USB communication chip
+Nó là một hệ thống ba phần:
 
-In order to make UnoJoy work, you'll need to take care of
-all three parts.  We're here to make that process as easy as
-possible.
+Drivers - Dùng để cài đặt driver cho mạch Arduino khi kết nối với USB
+Phần mềm -Thư viện UnoJoyKT cho Arduino
+Firmware - Mã để nạp vào chip giao tiếp USB của Arduino 
 
-===Drivers===
+Để làm việc với UnoJoyKT, bạn cần phải tiến hành làm việc với 3 phần của dự án. 
 
-In the UnoJoy directory, there are installer files for the drivers
-you'll need for the DFU bootloader.  Choose the correct one for your OS:
-WindowsUnoJoyDriverInstaller.exe
-LionUnoJoyDrivers.pkg
-SnowLeopardUnoJoyDrivers.pkg
+=== DRIVERS ===
+Trong thư mục UnoJoyKT, có những tập tin cài đặt các trình điều khiển
+bạn sẽ cần cho bộ nạp khởi động DFU. 
 
-On Windows, you'll also need to download and install Atmel's FLIP tool:
+Trên Windows, bạn cũng cần phải tải về và cài đặt công cụ FLIP của Atmel:
 http://www.atmel.com/tools/FLIP.aspx
 
-===Software===
-To get started, first, go to the UnoJoyArduinoSample
-folder. Open up UnoJoyArduinoSample and upload that code
-to your Arduino.
 
-Next, test to make sure that it's working - open up the 
-UnoJoyProcessingVisualizer sketch in processing and run it.
-You should see a representation of the controller, and if you
-ground any of the pins between 2 and 12, you should see
-buttons on the controller light up.  Now, we move onto the hardware
+=== SOFTWARE ===
 
-===Hardware===
-Now that we have the proper code on the Arduino, we need
-to reprogram the communications chip on the Arduino.
-In order to do this, you need to first put the Arduino
-into 'Arduino UNO DFU' mode. The official documentation
-for this is here
+Để bắt đầu, trước tiên, hãy vào thư mục UnoJoyKTdemo. Mở UnoJoyKTdemo.ino và upload mã cho Arduino của bạn.
 
+
+=== FIRMWARE ===
+
+Bây giờ chúng ta có mã trên Arduino, việc tiếp theo là chúng ta cần
+lập trình lại chip giao tiếp trên Arduino. Để làm điều này, đầu tiên bạn cần đặt các Arduino vào chế độ 'Arduino UNO DFU'. 
+Các hướng dẫn về chế độ 'Arduino UNO DFU' được mô tả ở link bên dưới:
 http://arduino.cc/en/Hacking/DFUProgramming8U2
 
-----HOW TO PUT YOUR ARDUINO INTO DFU MODE----
-You do that by shorting two of the pins on the block of 6 pins between
-the USB connector.  Using a piece of wire or other small metal object,
-connect the 2 pins closes to the USB connector together.
-(the ones that turn from o to | in the diagram)
+---- Cách đưa Arduino vào chế độ DFU ----
+
+Đầu tiên cắm kết nối Arduino với máy tính.
+Sau đó sử dụng một đoạn dây điện hoặc một vật nhỏ bằng kim loại, kết nối 2 chân ở khối chân cắm gồm 6 chân ở gần cổng USB của mạch Arduino.
+Sau đó rút kết nối mạch Arduino ra khỏi máy tính và kết nối lại và bây giờ xuất hiện để hệ thống của bạn là 'Arduino UNO DFU'.
 
                       ---->
         o o o           |        | o o 
@@ -56,41 +45,21 @@ USB |                   |USB |
     |                   |    |   
 ----|                   |----|
                         |
-It should disconnect (be-dun.) and reconnect (buh-din!) 
-and now show up to your system as 'Arduino UNO DFU'.
-In OSX, you will get no feedback from your computer, but
-the lights on the Arduino will stop flashing.
 
-----ONCE YOU ARE IN DFU MODE----
+---- Khi bạn đang trong chế độ 'Arduino UNO DFU' ----
 
-Once the Arduino is in DFU mode, to update the firmware, simply click:
-
+Khi Arduino đang ở trong chế độ DFU, để cập nhật firmware, chỉ cần nhấp vào:
 Windows: TurnIntoAJoystick.bat
-         
-OSX:     TurnIntoAJoystick.command
 
-IMPORTANT: Once you update the firmware, you'll need to 
-unplug and plug the Arduino back in for it to show up with
-the new firmware - it'll just hang out in DFU mode until you do.
+Lưu ý: Sau khi bạn cập nhật xong firmware, bạn sẽ cần phải tháo và cắm Arduino lại cho nó để hiển thị với phần mềm mới. 
+Khi bạn cắm lại Arduino, nó sẽ hiển thị trên máy tính như là một 'UnoJoyKT Joystick'. Bạn có thể kiểm tra điều này theo bước dưới đây
 
-When you plug the Arduino in again now, it will show up to your
-computer as an 'UnoJoy Joystick'.  You can check this by doing
-the steps in the next section.
 
-----HOW TO CHECK WHICH MODE YOU ARE IN----
 
-On Windows 7, you can check it out by going to
-    Start->Devices and Printers
-    and you should see it there under 'Unspecified'
-    In Arduino mode, it will appear as 'Arduino UNO (COM 23)'
-    In DFU mode, it will appear as 'Arduino UNO DFU'
-    In UnoJoy mode, it will appear at the top as 'UnoJoy Joystick'
+---- Cách kiểm tra các chế độ làm việc của Arduino ----
 
-On OSX, you should see it:
-    Snow Leopard: Apple->About This Mac->More Info...->USB
-    Lion: Apple->About This Mac->More Info...->System Report->USB
-    You may need to refresh (command-R) to see it update.
-    In Arduino mode, it will appear as 'Arduino UNO'
-    In DFU mode, it will appear as 'Arduino UNO DFU'
-    In UnoJoy mode, it will appear at the top as 'UnoJoy Joystick'
-
+Trên Windows 7, 8, 8.1, 10 bạn có thể kiểm tra xem nó ra bằng cách vào
+    Start-> Devices and Printers và bạn sẽ thấy nó có tên 'Unspecified'
+    Trong chế độ Arduino, nó sẽ xuất hiện như là 'Arduino UNO (COM 23)
+    Trong chế độ DFU, nó sẽ xuất hiện như là 'Arduino UNO DFU'
+    Trong chế độ UnoJoyKT, nó sẽ xuất hiện ở đầu như 'UnoJoyKT Joystick'
