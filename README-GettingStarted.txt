@@ -62,4 +62,4 @@ Trên Windows 7, 8, 8.1, 10 bạn có thể kiểm tra xem nó ra bằng cách v
     Start-> Devices and Printers và bạn sẽ thấy nó có tên 'Unspecified'
     Trong chế độ Arduino, nó sẽ xuất hiện như là 'Arduino UNO (COM 23)
     Trong chế độ DFU, nó sẽ xuất hiện như là 'Arduino UNO DFU'
-    Trong chế độ UnoJoyKT, nó sẽ xuất hiện ở đầu như 'UnoJoyKT Joystick'
+    Trong chế độ UnoJoy, nó sẽ xuất hiện ở đầu như 'UnoJoy Joystick'
